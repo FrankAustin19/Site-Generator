@@ -22,7 +22,29 @@ class TextNode:
             
     def __repr__(self):
         return f"TextNode({self.text!r}, {self.text_type!r}, {self.url!r})"
-    
+
+def split_nodes_delimiter(old_nodes, delimiter, text_type):
+    new_nodes = []
+    for node in old_nodes:
+        if isinstance(node, TextNode) and node.text_type == text_type_text:
+            parts = node.text.split(delimiter)
+            
+            if len(parts) % 2 == 0:
+                raise ValueError("Unmatched delimiter found in text: " + node.text)
+                
+            for i, part in enumerate(parts):
+                if i % 2 == 0:  
+                    new_node = TextNode(part, text_type_text)
+                else:  
+                    new_node = TextNode(part, text_type)
+                new_nodes.append(new_node)
+        else:
+            
+            new_nodes.append(node)
+    return new_nodes
+
+
+
 def main():
     node = TextNode("this is a text node", "bold", "https://www.boot.dev")
     print(node)
