@@ -54,6 +54,64 @@ def extract_markdown_links(text):
     matches = re.findall(pattern, text)
     return matches
 
+def split_nodes_link(old_nodes):
+    link_pattern = re.compile(r'\[(.*?)\]\((.*?)\)')
+    new_nodes = []
+
+    for node in old_nodes:
+        if node.text_type == text_type_text:
+            parts = link_pattern.split(node.text)
+
+            while parts:
+                text = parts.pop(0)
+                if text:
+                    new_nodes.append(TextNode(text, text_type_text))
+                
+                if parts:
+                    display_text = parts.pop(0)
+                    url = parts.pop(0)
+                    new_nodes.append(TextNode(display_text, text_type_link, url))
+        else:
+            new_nodes.append(node)
+    return new_nodes
+
+import re
+
+def split_nodes_image(old_nodes):
+    
+    image_pattern = re.compile(r'!\[(.*?)\]\((.*?)\)')
+    
+    new_nodes = []
+    
+    for node in old_nodes:
+        if node.text_type == text_type_text:
+            parts = image_pattern.split(node.text)
+            
+            while parts:
+                text = parts.pop(0)
+                if text:
+                    new_nodes.append(TextNode(text, text_type_text))
+                if parts:
+                    alt_text = parts.pop(0)
+                    url = parts.pop(0)
+                    new_nodes.append(TextNode(alt_text, text_type_image, url))
+        else:
+            new_nodes.append(node)
+    
+    return new_nodes
+
+def text_to_textnodes(text):
+    nodes = [TextNode(text, text_type_text)]
+    nodes = split_nodes_delimiter(nodes, "**", text_type_bold)
+    nodes = split_nodes_delimiter(nodes, "*", text_type_italic)
+    nodes = split_nodes_delimiter(nodes, "`", text_type_code)
+    nodes = split_nodes_image(nodes)
+    nodes = split_nodes_link(nodes)
+    return nodes
+
+        
+         
+         
 
 def main():
     node = TextNode("this is a text node", "bold", "https://www.boot.dev")
