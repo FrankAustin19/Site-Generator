@@ -10,17 +10,17 @@ from textnode import (
 
 
 
-class HTMLNode:
+class HTMLNode:                                                                   #HTMLNode
     def __init__(self, tag=None, value=None, children=None, props=None):
         self.tag = tag
         self.value = value
         self.children = children
-        self.props = props
+        self.props = props or {}
 
     def to_html(self):
         raise NotImplementedError
     
-    def props_to_html(self):
+    def props_to_html(self):                            #converts list of props to key-value pairs in a dictionary
         parts = []
         for key, value in self.props.items():
             parts.append (f'{key}="{value}"')
@@ -31,7 +31,7 @@ class HTMLNode:
         return f"HTMLNODE(tag = {self.tag}, value = {self.value}, children = {self.children}, props = {self.props})"
     
 
-class LeafNode(HTMLNode):
+class LeafNode(HTMLNode):                           #subclass of HTMLNode. smallest pieces.
     def __init__(self, tag, value, props={}):
         if tag is None:
             tag = ""
@@ -46,15 +46,15 @@ class LeafNode(HTMLNode):
         if not self.tag:
             return self.value
         
-        props_string = self.props_to_html()
+        props_string = self.props_to_html()               #converts leafnode to HTML string
         if props_string:
             return f"<{self.tag} {props_string}>{self.value}</{self.tag}>"
         else:
             return f"<{self.tag}>{self.value}</{self.tag}>"
         
-class ParentNode(HTMLNode):
+class ParentNode(HTMLNode):                     #parentnode is a rejoining of leafnodes
 
-    def __init__(self, tag, children, props):
+    def __init__(self, tag, children, props=None):
         if children is None:
             raise ValueError("ParentNode must have children")
         super().__init__(tag, children, props)
@@ -72,7 +72,7 @@ class ParentNode(HTMLNode):
         children_html = ''.join(html_pieces)
         return f"<{self.tag}>{children_html}</{self.tag}>"
     
-def text_node_to_html_node(text_node):
+def text_node_to_html_node(text_node):              #function to pass our textnodes into htmlnodes
     if text_node.text_type == text_type_text:
         return LeafNode(None, text_node.text, None)
     elif text_node.text_type == text_type_bold:
@@ -80,9 +80,9 @@ def text_node_to_html_node(text_node):
     elif text_node.text_type == text_type_italic:
         return LeafNode("i", text_node.text, None)
     elif text_node.text_type == text_type_code:
-        return LeafNode("code", text_type.text, None)
+        return LeafNode("code", text_node.text, None)
     elif text_node.text_type == text_type_link:
-        return LeafNode("a", text_node.text, {"href": text_node.href})
+        return LeafNode("a", text_node.text, {"href": text_node.url})
     elif text_node.text_type == text_type_image:
         return LeafNode("img", "", {"src": text_node.src, "alt": text_node.alt})
     else:

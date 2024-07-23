@@ -1,0 +1,44 @@
+2024-07-22 18:53:43,516 INFO:Starting site generation...
+2024-07-22 18:53:43,516 INFO:Deleting public directory: /root/Site/public
+2024-07-22 18:53:43,516 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 18:53:43,520 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 19:00:24,524 INFO:Starting site generation...
+2024-07-22 19:00:24,524 INFO:Deleting public directory: /root/Site/public
+2024-07-22 19:00:24,524 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 19:00:24,528 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 19:06:59,925 INFO:Starting site generation...
+2024-07-22 19:06:59,925 INFO:Deleting public directory: /root/Site/public
+2024-07-22 19:06:59,925 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 19:06:59,930 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 19:08:54,826 INFO:Starting site generation...
+2024-07-22 19:08:54,826 INFO:Deleting public directory: /root/Site/public
+2024-07-22 19:08:54,826 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 19:08:54,829 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 19:10:08,641 INFO:Starting site generation...
+2024-07-22 19:10:08,642 INFO:Deleting public directory: /root/Site/public
+2024-07-22 19:10:08,642 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 19:10:08,645 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 19:10:33,244 INFO:Starting site generation...
+2024-07-22 19:10:33,245 INFO:Deleting public directory: /root/Site/public
+2024-07-22 19:10:33,245 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 19:10:33,247 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 19:11:47,062 INFO:Starting site generation...
+2024-07-22 19:11:47,062 INFO:Deleting public directory: /root/Site/public
+2024-07-22 19:11:47,062 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 19:11:47,067 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 19:12:18,095 INFO:Starting site generation...
+2024-07-22 19:12:18,095 INFO:Deleting public directory: /root/Site/public
+2024-07-22 19:12:18,095 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 19:12:18,098 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 19:12:40,966 INFO:Starting site generation...
+2024-07-22 19:12:40,966 INFO:Deleting public directory: /root/Site/public
+2024-07-22 19:12:40,967 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 19:12:40,971 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 19:13:35,109 INFO:Starting site generation...
+2024-07-22 19:13:35,109 INFO:Deleting public directory: /root/Site/public
+2024-07-22 19:13:35,110 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 19:13:35,113 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 19:14:19,719 INFO:Starting site generation...
+2024-07-22 19:14:19,719 INFO:Deleting public directory: /root/Site/public
+2024-07-22 19:14:19,720 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 19:14:19,724 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html

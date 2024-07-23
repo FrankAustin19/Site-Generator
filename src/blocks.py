@@ -99,7 +99,8 @@ def paragraph_to_html_node(block):
     lines = block.split("\n")
     paragraph = " ".join(lines)
     children = text_to_children(paragraph)
-    return ParentNode("p", children)
+    props = {}
+    return ParentNode("p", children, props)
 
 
 def heading_to_html_node(block):
@@ -109,11 +110,15 @@ def heading_to_html_node(block):
             level += 1
         else:
             break
+    
+    
     if level + 1 >= len(block):
         raise ValueError(f"Invalid heading level: {level}")
-    text = block[level + 1 :]
-    children = text_to_children(text)
-    return ParentNode(f"h{level}", children)
+    
+    text = block[level + 1:].strip()
+    children = text_to_children(text)     
+    props = {}  
+    return ParentNode(f"h{level}", children, props)
 
 
 def code_to_html_node(block):
@@ -128,21 +133,23 @@ def code_to_html_node(block):
 def olist_to_html_node(block):
     items = block.split("\n")
     html_items = []
+    props = {}
     for item in items:
         text = item[3:]
         children = text_to_children(text)
-        html_items.append(ParentNode("li", children))
-    return ParentNode("ol", html_items)
+        html_items.append(ParentNode("li", children, props))
+    return ParentNode("ol", html_items, props)
 
 
 def ulist_to_html_node(block):
     items = block.split("\n")
     html_items = []
+    props = {}
     for item in items:
         text = item[2:]
         children = text_to_children(text)
-        html_items.append(ParentNode("li", children))
-    return ParentNode("ul", html_items)
+        html_items.append(ParentNode("li", children, props))
+    return ParentNode("ul", html_items, props)
 
 
 def quote_to_html_node(block):
@@ -154,4 +161,5 @@ def quote_to_html_node(block):
         new_lines.append(line.lstrip(">").strip())
     content = " ".join(new_lines)
     children = text_to_children(content)
-    return ParentNode("blockquote", children)
+    props = {}
+    return ParentNode("blockquote", children, props)
