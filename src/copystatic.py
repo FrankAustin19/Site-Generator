@@ -1,5 +1,9 @@
 import os
 import shutil
+import logging
+
+logging.basicConfig(filename='generate_page.log', level=logging.DEBUG, 
+                    format='%(asctime)s %(levelname)s:%(message)s')
 
 from blocks import markdown_to_html_node
 from utils import extract_title

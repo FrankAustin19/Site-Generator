@@ -14,11 +14,11 @@ class HTMLNode:                                                                 
     def __init__(self, tag=None, value=None, children=None, props=None):
         self.tag = tag
         self.value = value
-        self.children = children
-        self.props = props or {}
+        self.children = children if children else []
+        self.props = props if props else {}
 
     def to_html(self):
-        raise NotImplementedError
+        raise NotImplementedError("Must be implemented by subclasses")
     
     def props_to_html(self):                            #converts list of props to key-value pairs in a dictionary
         parts = []
@@ -52,25 +52,22 @@ class LeafNode(HTMLNode):                           #subclass of HTMLNode. small
         else:
             return f"<{self.tag}>{self.value}</{self.tag}>"
         
-class ParentNode(HTMLNode):                     #parentnode is a rejoining of leafnodes
-
+class ParentNode(HTMLNode):
     def __init__(self, tag, children, props=None):
-        if children is None:
-            raise ValueError("ParentNode must have children")
-        super().__init__(tag, children, props)
+        super().__init__(tag, None, children, props)
 
     def to_html(self):
-        if not self.tag:
-            raise ValueError("Object has no tag")
-        if not self.children:
-            raise ValueError("ParentNode must have children")
-    
-        html_pieces = []
+        if self.tag is None:
+            raise ValueError("Invalid HTML: no tag")
+        if self.children is None:
+            raise ValueError("Invalid HTML: no children")
+        children_html = ""
         for child in self.children:
-            html_pieces.append(child.to_html())
-    
-        children_html = ''.join(html_pieces)
-        return f"<{self.tag}>{children_html}</{self.tag}>"
+            children_html += child.to_html()
+        return f"<{self.tag}{self.props_to_html()}>{children_html}</{self.tag}>"
+
+    def __repr__(self):
+        return f"ParentNode({self.tag}, children: {self.children}, {self.props})"
     
 def text_node_to_html_node(text_node):              #function to pass our textnodes into htmlnodes
     if text_node.text_type == text_type_text:

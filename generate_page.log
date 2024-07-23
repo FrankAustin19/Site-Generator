@@ -1,0 +1,17 @@
+2024-07-22 22:50:49,307 INFO:Starting site generation...
+2024-07-22 22:50:49,308 INFO:Deleting public directory: /root/Site/public
+2024-07-22 22:50:49,308 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 22:50:49,317 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 22:54:01,065 INFO:Starting site generation...
+2024-07-22 22:54:01,065 INFO:Deleting public directory: /root/Site/public
+2024-07-22 22:54:01,065 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 22:54:01,071 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 22:55:08,003 INFO:Starting site generation...
+2024-07-22 22:55:08,004 INFO:Deleting public directory: /root/Site/public
+2024-07-22 22:55:08,004 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 22:55:08,006 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 22:58:37,464 INFO:Starting site generation...
+2024-07-22 22:58:37,464 INFO:Deleting public directory: /root/Site/public
+2024-07-22 22:58:37,464 INFO:Copying static files from /root/Site/static to /root/Site/public
+2024-07-22 22:58:37,466 INFO:Generating page from /root/Site/content/index.md to /root/Site/public/index.html using template /root/Site/template.html
+2024-07-22 22:58:37,467 INFO:Site generation completed.
